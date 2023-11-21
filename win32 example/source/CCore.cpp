@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CCore.h"
 
+#include "CTimeMgr.h"
+
 CCore::CCore( )
 	: m_hWnd{ 0 }
 	, m_ptResolution{ 0, 0 }
@@ -38,11 +40,17 @@ int CCore::init( HWND _hWnd, POINT _ptResolution )
 	HBITMAP hDefaultBit = (HBITMAP)SelectObject( m_memDC, m_hBit );
 	DeleteObject( hDefaultBit );
 
+	// Manager ÃÊ±âÈ­
+	CTimeMgr::GetInst( )->init( );
+
 	return S_OK;
 }
 
 void CCore::progress( )
 {
+	// Manager update
+	CTimeMgr::GetInst( )->update( );
+
 	update( );
 
 	render( );
