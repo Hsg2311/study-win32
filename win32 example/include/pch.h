@@ -5,3 +5,4 @@
 #include <iostream>
 
 #include "define.h"
+#include "struct.h"
