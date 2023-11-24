@@ -2,6 +2,7 @@
 #include "CCore.h"
 
 #include "CTimeMgr.h"
+#include "CKeyMgr.h"
 
 CCore::CCore( )
 	: m_hWnd{ 0 }
@@ -42,6 +43,7 @@ int CCore::init( HWND _hWnd, POINT _ptResolution )
 
 	// Manager ÃÊ±âÈ­
 	CTimeMgr::GetInst( )->init( );
+	CKeyMgr::GetInst( )->init( );
 
 	return S_OK;
 }
@@ -50,6 +52,7 @@ void CCore::progress( )
 {
 	// Manager update
 	CTimeMgr::GetInst( )->update( );
+	CKeyMgr::GetInst( )->update( );
 
 	update( );
 

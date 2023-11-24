@@ -49,6 +49,6 @@ void CTimeMgr::update( )
 
 		WCHAR szBuffer[ 255 ];
 		swprintf_s( szBuffer, L"FPS : %d, DT : %lf", m_iFPS, m_dDT );
-		SetWindowText( CCore::GetInst( )->GetHWND( ), szBuffer );
+		SetWindowText( CCore::GetInst( )->GetMainHWND( ), szBuffer );
 	}
 }
