@@ -71,6 +71,7 @@ class CKeyMgr
 public:
 	void init( );
 	void update( );
+	KEY_STATE GetKeyState( KEY _eKey ) { return m_vecKey[ (UINT)_eKey ].eKeyState; }
 
 private:
 	std::vector<tKeyInfo> m_vecKey;

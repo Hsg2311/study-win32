@@ -4,6 +4,9 @@
 #include "CTimeMgr.h"
 #include "CKeyMgr.h"
 
+#include "CObject.h"
+CObject g_Obj;
+
 CCore::CCore( )
 	: m_hWnd{ 0 }
 	, m_ptResolution{ 0, 0 }
@@ -45,6 +48,8 @@ int CCore::init( HWND _hWnd, POINT _ptResolution )
 	CTimeMgr::GetInst( )->init( );
 	CKeyMgr::GetInst( )->init( );
 
+	g_Obj.SetPos( Vec2{ m_ptResolution.x / 2, m_ptResolution.y / 2 } );
+	g_Obj.SetScale( Vec2{ 100l, 100l } );
 	return S_OK;
 }
 
@@ -61,10 +66,30 @@ void CCore::progress( )
 
 void CCore::update( )
 {
+	Vec2 vPos = g_Obj.GetPos( );
 
+	if ( CKeyMgr::GetInst( )->GetKeyState( KEY::LEFT ) == KEY_STATE::HOLD )
+	{
+		OutputDebugString( L"push the left button" );
+		vPos.x -= 200.f * fDT;
+	}
+	if ( CKeyMgr::GetInst( )->GetKeyState( KEY::RIGHT ) == KEY_STATE::HOLD )
+	{
+		vPos.x += 200.f * fDT;
+	}
+
+	g_Obj.SetPos( vPos );
 }
 
 void CCore::render( )
 {
+	Rectangle( m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1 );
 
+	Vec2 vPos = g_Obj.GetPos( );
+	Vec2 vScale = g_Obj.GetScale( );
+
+	Rectangle( m_memDC, (int)( vPos.x - vScale.x / 2.f ), (int)( vPos.y - vScale.y / 2.f ),
+		(int)( vPos.x + vScale.x / 2.f ), (int)( vPos.y + vScale.y / 2.f ) );
+
+	BitBlt( m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY );
 }

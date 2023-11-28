@@ -79,7 +79,7 @@ void CKeyMgr::update( )
 		for ( int i = 0; i < (int)KEY::END_OF_ENUM_CLASS; ++i )
 		{
 			// 키가 눌려있다.
-			if ( GetAsyncKeyState( g_arrVK[ i ] & 0x8000 ) )
+			if ( GetAsyncKeyState( g_arrVK[ i ] ) & 0x8000 )
 			{
 				if ( m_vecKey[ i ].bPrevPush )
 				{
