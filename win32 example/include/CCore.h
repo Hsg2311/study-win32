@@ -16,7 +16,4 @@ private:
 
 	HBITMAP m_hBit;
 	HDC m_memDC;
-
-	void update( );
-	void render( );
 };
