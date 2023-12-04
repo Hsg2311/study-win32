@@ -2,6 +2,7 @@
 
 struct Vec2
 {
+public:
 	Vec2( )
 		: x{ 0.f }
 		, y{ 0.f }
@@ -22,6 +23,25 @@ struct Vec2
 		, y{ (float )_pt.y }
 	{}
 
+public:
+	float Length( )
+	{
+		return sqrt( x * x + y * y );
+	}
+	
+	Vec2& Nomalize( )
+	{
+		float fLen = Length( );
+
+		assert( fLen != 0 );
+
+		x /= fLen;
+		y /= fLen;
+
+		return *this;
+	}
+
+public:
 	float x;
 	float y;
 };

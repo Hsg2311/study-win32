@@ -7,16 +7,11 @@ public:
 	CMissile( );
 	~CMissile( );
 
-	void SetDir( bool _bUp )
-	{
-		if ( _bUp )
-		{
-			m_fDir = -1.f;
-		}
-		else
-		{
-			m_fDir = 1.f;
-		}
+	void SetDir( float _fTheta ) { m_fTheta = _fTheta; }
+	void SetDir( Vec2 _vDir )
+	{ 
+		m_vDir = _vDir;
+		m_vDir.Nomalize( );
 	}
 
 public:
@@ -24,5 +19,7 @@ public:
 	virtual void render( HDC _dc );
 
 private:
-	float m_fDir;	// 위, 아래 방향
+	float m_fTheta;	// 이동 방향(각도), 호도법(라디안 방식)
+	Vec2 m_vDir;	// Missile 객체를 중심으로 객체의 방향을 나타내는 벡터 성분으로써 사용
+					// 객체의 위치가 (0, 0)이다.
 };
