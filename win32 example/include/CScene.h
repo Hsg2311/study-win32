@@ -17,7 +17,7 @@ public:
 	void update( );
 	void render( HDC _dc );
 
-protected:
+public:
 	// 멤버 함수를 헤더에 구현하면 inline 처리됨
 	void AddObjcet( CObject* _pObj, GROUP_TYPE _eType )
 	{ 

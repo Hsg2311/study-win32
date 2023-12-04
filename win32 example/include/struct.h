@@ -17,6 +17,11 @@ struct Vec2
 		, y{ (float)_y }
 	{}
 
+	Vec2( const POINT& _pt )
+		: x{ (float )_pt.x }
+		, y{ (float )_pt.y }
+	{}
+
 	float x;
 	float y;
 };
