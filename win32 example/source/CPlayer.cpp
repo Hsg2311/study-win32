@@ -9,26 +9,19 @@
 
 #include "CMissile.h"
 
-#include "CPathMgr.h"
+#include "CResMgr.h"
 #include "CTexture.h"
 
 CPlayer::CPlayer( )
 	: m_pTex{ nullptr }
 {
 	// Texture 로딩하기
-	m_pTex = new CTexture;
-
-	std::wstring strFilePath = CPathMgr::GetInst( )->GetContentPath( );
-	strFilePath += L"texture\\cuphead_idle_0001.bmp";
-	m_pTex->Load( strFilePath );
+	m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\cuphead_idle_0001.bmp" );
 }
 
 CPlayer::~CPlayer( )
 {
-	if ( nullptr != m_pTex )
-	{
-		delete m_pTex;
-	}
+
 }
 
 void CPlayer::update( )

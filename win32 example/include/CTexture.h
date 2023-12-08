@@ -3,10 +3,13 @@
 
 class CTexture : public CRes
 {
-public:
+private:
 	CTexture( );
 	~CTexture( );
 
+	friend class CResMgr;
+
+public:
 	void Load( const std::wstring& _strFilePath );
 
 	UINT Width( ) { return m_bitInfo.bmWidth; }

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <map>
 
 #define _USE_MATH_DEFINES
 #include <math.h>
