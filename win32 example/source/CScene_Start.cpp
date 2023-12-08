@@ -7,8 +7,20 @@
 
 #include "CCore.h"
 
+#include "CPathMgr.h"
+#include "CTexture.h"
+
 void CScene_Start::Entry( )
 {
+	// Texture 로딩하기
+	CTexture* pTex = new CTexture;
+
+	std::wstring strFilePath = CPathMgr::GetInst( )->GetContentPath( );
+	strFilePath += L"texture\\cuphead_idle_0001.bmp";
+	pTex->Load( strFilePath );
+
+	delete pTex;
+
 	// Object 추가
 	CObject* pObj = new CPlayer;
 	pObj->SetPos( Vec2{ 640.f, 384.f } );

@@ -36,7 +36,10 @@ void CTimeMgr::update( )
 	m_dDT = ( (double)m_CurCount.QuadPart - (double)m_PrevCount.QuadPart ) / (double)m_Frequency.QuadPart;
 
 	m_PrevCount = m_CurCount;
+}
 
+void CTimeMgr::render( )
+{
 	++m_iCallCount;
 
 	m_dAcc += m_dDT;
