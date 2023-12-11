@@ -4,9 +4,10 @@
 #include "CTimeMgr.h"
 
 CMissile::CMissile( )
-	: m_fTheta{ M_PI_2 }
+	: m_fTheta{ (float)M_PI_2 }
 	, m_vDir{ 1.f, 1.f }
 {
+	CreateCollider( );
 }
 
 CMissile::~CMissile( )

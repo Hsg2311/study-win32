@@ -15,6 +15,7 @@ public:
 	virtual void Exit( ) = 0;	// 해당 Scene을 탈출 시 호출
 
 	void update( );
+	void finalupdate( );
 	void render( HDC _dc );
 
 public:

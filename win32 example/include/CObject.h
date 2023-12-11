@@ -1,5 +1,7 @@
 #pragma once
 
+class CCollider;
+
 class CObject
 {
 public:
@@ -12,10 +14,20 @@ public:
 	Vec2 GetPos( ) { return m_vPos; }
 	Vec2 GetScale( ) { return m_vScale; }
 
+	void CreateCollider( );
+
+	CCollider* GetCollider( ) { return m_pCollider; }
+
+public:
 	virtual void update( ) = 0;
+	virtual void finalupdate( ) final;
 	virtual void render( HDC _dc );
+
+	void component_render( HDC _dc );
 
 private:
 	Vec2 m_vPos;
 	Vec2 m_vScale;
+
+	CCollider* m_pCollider;
 };
