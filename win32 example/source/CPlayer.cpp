@@ -20,7 +20,8 @@ CPlayer::CPlayer( )
 	m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\cuphead_idle_0001.bmp" );
 
 	CreateCollider( );
-	GetCollider( )->setScale( Vec2{ 100.f, 100.f } );
+	GetCollider( )->SetOffsetPos( Vec2{ 0.f, 0.f } );
+	GetCollider( )->setScale( Vec2{ 70.f, 100.f } );
 }
 
 CPlayer::~CPlayer( )

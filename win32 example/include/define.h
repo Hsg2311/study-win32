@@ -26,7 +26,7 @@ enum class GROUP_TYPE
 	MISSILE,
 	MONSTER,
 
-	END_OF_ENUM_CLASS
+	END_OF_ENUM_CLASS = 32
 };
 
 enum class SCENE_TYPE
