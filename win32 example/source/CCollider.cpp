@@ -5,8 +5,11 @@
 
 #include "CCore.h"
 
+UINT CCollider::g_iNextID = 0;
+
 CCollider::CCollider( )
 	: m_pOwner{ nullptr }
+	, m_ID{ g_iNextID++ }
 {
 }
 

@@ -25,7 +25,12 @@ public:
 		m_arrObj[ (UINT)_eType ].push_back( _pObj );
 	}
 
+	const std::vector<CObject*>& GetGroupObject( GROUP_TYPE _eType )
+	{
+		return m_arrObj[ (UINT)_eType ];
+	}
+
 private:
-	std::vector<CObject*> m_arrObj[ (UINT)GROUP_TYPE::END_OF_ENUM_CLASS ];	// 오브젝트를 저장 및 관리할 벡터를	그룹 개수만큼 선언
+	std::vector<CObject*> m_arrObj[ (UINT)GROUP_TYPE::EOE ];	// 오브젝트를 저장 및 관리할 벡터를	그룹 개수만큼 선언
 	std::wstring m_SceneName;
 };

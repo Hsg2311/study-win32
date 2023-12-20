@@ -26,7 +26,7 @@ enum class GROUP_TYPE
 	MISSILE,
 	MONSTER,
 
-	END_OF_ENUM_CLASS = 32
+	EOE	// END_OF_ENUM_CLASS
 };
 
 enum class SCENE_TYPE
@@ -36,13 +36,14 @@ enum class SCENE_TYPE
 	STAGE_01,
 	STAGE_02,
 
-	END_OF_ENUM_CLASS
+	EOE
 };
 
 enum class BRUSH_TYPE
 {
 	HOLLOW,
-	EOE	// END_OF_ENUM_CLASS
+
+	EOE
 };
 
 enum class PEN_TYPE
@@ -50,5 +51,6 @@ enum class PEN_TYPE
 	RED,
 	GREEN,
 	BLUE,
+
 	EOE
 };

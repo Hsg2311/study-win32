@@ -10,7 +10,7 @@ CScene::CScene( )
 
 CScene::~CScene( )
 {
-	for ( UINT i = 0; i < (UINT)GROUP_TYPE::END_OF_ENUM_CLASS; ++i )
+	for ( UINT i = 0; i < (UINT)GROUP_TYPE::EOE; ++i )
 	{
 		for ( size_t j = 0; j < m_arrObj[ i ].size( ); ++j )
 		{
@@ -22,7 +22,7 @@ CScene::~CScene( )
 
 void CScene::update( )
 {
-	for ( UINT i = 0; i < (UINT)GROUP_TYPE::END_OF_ENUM_CLASS; ++i )
+	for ( UINT i = 0; i < (UINT)GROUP_TYPE::EOE; ++i )
 	{
 		for ( size_t j = 0; j < m_arrObj[ i ].size( ); ++j )
 		{
@@ -33,7 +33,7 @@ void CScene::update( )
 
 void CScene::finalupdate( )
 {
-	for ( UINT i = 0; i < (UINT)GROUP_TYPE::END_OF_ENUM_CLASS; ++i )
+	for ( UINT i = 0; i < (UINT)GROUP_TYPE::EOE; ++i )
 	{
 		for ( size_t j = 0; j < m_arrObj[ i ].size( ); ++j )
 		{
@@ -44,7 +44,7 @@ void CScene::finalupdate( )
 
 void CScene::render( HDC _dc )
 {
-	for ( UINT i = 0; i < (UINT)GROUP_TYPE::END_OF_ENUM_CLASS; ++i )
+	for ( UINT i = 0; i < (UINT)GROUP_TYPE::EOE; ++i )
 	{
 		for ( size_t j = 0; j < m_arrObj[ i ].size( ); ++j )
 		{

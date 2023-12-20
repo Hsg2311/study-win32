@@ -13,6 +13,6 @@ public:
 	CScene* GetCurScene( ) { return m_pCurScene; }
 
 private:
-	CScene* m_arrScene[ (UINT)SCENE_TYPE::END_OF_ENUM_CLASS ];	// 모든 Scene 목록
+	CScene* m_arrScene[ (UINT)SCENE_TYPE::EOE ];	// 모든 Scene 목록
 	CScene* m_pCurScene;										// 현재 Scene
 };

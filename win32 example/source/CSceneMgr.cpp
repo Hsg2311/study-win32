@@ -13,7 +13,7 @@ CSceneMgr::CSceneMgr( )
 CSceneMgr::~CSceneMgr( )
 {
 	// Scene 전부 삭제
-	for ( UINT i = 0; i < (UINT)SCENE_TYPE::END_OF_ENUM_CLASS; ++i )
+	for ( UINT i = 0; i < (UINT)SCENE_TYPE::EOE; ++i )
 	{
 		if ( nullptr != m_arrScene[ i ] )
 		{
