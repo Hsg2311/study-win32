@@ -8,6 +8,10 @@ public:
 	CCollider( );
 	~CCollider( );
 
+	CCollider( const CCollider& other );
+
+	CCollider& operator=( const CCollider& other ) = delete;
+
 public:
 	void finalupdate( );
 	void render( HDC _dc );
@@ -19,6 +23,15 @@ public:
 	Vec2 GetOffsetPos( ) { return m_vOffsetPos; }
 	Vec2 GetScale( ) { return m_vScale; }
 
+	Vec2 GetFinalPos( ) { return m_vFinalPos; }
+
+	UINT GetID( ) { return m_ID; }
+
+	// 충돌 시점 함수
+	void OnCollision( CCollider* other );	// 충돌 중인 경우 호출되는 함수
+	void OnCollisionEnter( CCollider* other );	// 충돌 진입 시
+	void OnCollisionExit( CCollider* other );	// 충돌 해제 시
+
 private:
 	static UINT g_iNextID;
 
@@ -28,6 +41,7 @@ private:
 	Vec2 m_vScale;			// 충돌체의 크기
 
 	UINT m_ID;				// 충돌체 고유한 ID값
+	UINT m_iColl;
 
 	friend class CObject;
 };

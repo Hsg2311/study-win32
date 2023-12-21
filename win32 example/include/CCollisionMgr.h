@@ -1,6 +1,16 @@
 #pragma once
 
-class CColider;
+class CCollider;
+
+union COLLIDER_ID
+{
+	struct
+	{
+		UINT Left_ID;
+		UINT Right_ID;
+	};
+	ULONGLONG ID;
+};
 
 class CCollisionMgr
 {
@@ -16,6 +26,6 @@ private:
 	bool IsCollision( CCollider* _pLeftColl, CCollider* _pRightColl );
 
 private:
-	// TODO : 충돌체 간의 이전 프레임 충돌 정보 담기
+	std::map<ULONGLONG, bool> m_mapCollInfo;		// 충돌체 간의 이전 프레임 충돌 정보
 	UINT m_arrCheck[ (UINT)GROUP_TYPE::EOE ];	// 그룹 간의 충돌 체크 매트릭스
 };

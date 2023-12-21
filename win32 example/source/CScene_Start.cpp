@@ -21,7 +21,7 @@ void CScene_Start::Entry( )
 	AddObjcet( pObj, GROUP_TYPE::PLAYER );
 
 	// Monster Object Ãß°¡
-	int iMonCount = 10;
+	int iMonCount = 15;
 	float fMoveDist = 50.f;
 	float ObjScale = 50.f;
 
