@@ -20,6 +20,11 @@ CMonster::~CMonster( )
 
 }
 
+void CMonster::OnCollisionEnter( CCollider* other )
+{
+
+}
+
 void CMonster::update( )
 {
 	Vec2 vMonCurPos = GetPos( );

@@ -14,9 +14,16 @@ public:
 	Vec2 GetPos( ) { return m_vPos; }
 	Vec2 GetScale( ) { return m_vScale; }
 
+	void SetName( const std::wstring& _name ) { name = _name; }
+	const std::wstring& GetName( ) { return name; }
+
 	void CreateCollider( );
 
 	CCollider* GetCollider( ) { return m_pCollider; }
+
+	virtual void OnCollision( CCollider* other ) { }
+	virtual void OnCollisionEnter( CCollider* other ) { }
+	virtual void OnCollisionExit( CCollider* other ) { }
 
 public:
 	virtual void update( ) = 0;
@@ -26,6 +33,8 @@ public:
 	void component_render( HDC _dc );
 
 private:
+	std::wstring name;
+
 	Vec2 m_vPos;
 	Vec2 m_vScale;
 

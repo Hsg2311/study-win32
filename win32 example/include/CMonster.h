@@ -12,6 +12,8 @@ public:
 	void SetDistance( float _f ) { m_fMaxDistance = _f; }
 	void SetMonsterPos( Vec2 _vPos ) { m_vMonsterPos = _vPos; }
 
+	virtual void OnCollisionEnter( CCollider* other );
+
 public:
 	virtual void update( );
 
