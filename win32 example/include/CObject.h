@@ -21,9 +21,14 @@ public:
 
 	CCollider* GetCollider( ) { return m_pCollider; }
 
+	bool IsDead( ) { return !m_bAlive; }
+
 	virtual void OnCollision( CCollider* other ) { }
 	virtual void OnCollisionEnter( CCollider* other ) { }
 	virtual void OnCollisionExit( CCollider* other ) { }
+
+private:
+	void SetDead( ) { m_bAlive = false; }
 
 public:
 	virtual void update( ) = 0;
@@ -39,4 +44,8 @@ private:
 	Vec2 m_vScale;
 
 	CCollider* m_pCollider;
+
+	bool m_bAlive;
+
+	friend class CEventMgr;
 };

@@ -94,6 +94,5 @@ void CPlayer::CreateMissile( )
 	//pMissileObj->SetDir( 0.f );
 	pMissileObj->SetDir( Vec2{ 0.f, -1.f }  );
 
-	CScene* pCurScene =  CSceneMgr::GetInst( )->GetCurScene( );
-	pCurScene->AddObjcet( pMissileObj, GROUP_TYPE::DEFAULT );
+	CreateObject( pMissileObj, GROUP_TYPE::PROJECTILE_P );
 }
