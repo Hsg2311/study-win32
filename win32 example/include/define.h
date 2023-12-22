@@ -54,3 +54,12 @@ enum class PEN_TYPE
 
 	EOE
 };
+
+enum class EVENT_TYPE
+{
+	CREATE_OBJECT,
+	DELETE_OBJECT,
+	SCENE_CHANGE,
+
+	EOE
+};
