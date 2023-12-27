@@ -106,15 +106,31 @@ void CCollisionMgr::CollisionGroupUpdate( GROUP_TYPE lhs, GROUP_TYPE rhs )
 				if ( iter->second )
 				{
 					// 이전에도 충돌하고 있었다.
-					pLeftColl->OnCollision( pRightColl );
-					pRightColl->OnCollision( pLeftColl );
+
+					if ( vecLeft[ i ]->IsDead( ) || vecRight[ j ]->IsDead( ) )
+					{
+						// 근데 둘 중 하나가 삭제 예정이라면, 충돌 해제시켜준다.
+						pLeftColl->OnCollisionExit( pRightColl );
+						pRightColl->OnCollisionExit( pLeftColl );
+						iter->second = false;
+					}
+					else
+					{
+						pLeftColl->OnCollision( pRightColl );
+						pRightColl->OnCollision( pLeftColl );
+					}
 				}
 				else
 				{
-					// 이제 막 충돌했다.
-					pLeftColl->OnCollisionEnter( pRightColl );
-					pRightColl->OnCollisionEnter( pLeftColl );
-					iter->second = true;
+					// 이전에는 충돌하지 않았다. -> 이제 막 충돌했다.
+					// 근데 둘 중 하나가 삭제 예정이라면, 충돌하지 않은 것으로 취급.
+
+					if ( !vecLeft[ i ]->IsDead( ) && !vecRight[ j ]->IsDead( ) )
+					{
+						pLeftColl->OnCollisionEnter( pRightColl );
+						pRightColl->OnCollisionEnter( pLeftColl );
+						iter->second = true;
+					}
 				}
 			}
 			else

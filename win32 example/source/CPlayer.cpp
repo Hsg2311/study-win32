@@ -89,6 +89,7 @@ void CPlayer::CreateMissile( )
 	vMissilePos.y -= GetScale( ).y / 2.f;
 
 	CMissile* pMissileObj = new CMissile;
+	pMissileObj->SetName( L"Projectile_P" );
 	pMissileObj->SetPos( vMissilePos );
 	pMissileObj->SetScale( Vec2{ 25.f, 25.f } );
 	//pMissileObj->SetDir( 0.f );

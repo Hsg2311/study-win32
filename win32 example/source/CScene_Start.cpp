@@ -33,6 +33,7 @@ void CScene_Start::Entry( )
 	for ( int i = 0; i < iMonCount; ++i )
 	{
 		pMonsterObj = new CMonster;
+		pMonsterObj->SetName( L"Monster" );
 		pMonsterObj->SetPos( Vec2{ ( fMoveDist + ObjScale / 2.f ) + (float)i * fTerm, 50.f } );
 		pMonsterObj->SetMonsterPos( pMonsterObj->GetPos( ) );
 		pMonsterObj->SetDistance( fMoveDist );
@@ -43,6 +44,7 @@ void CScene_Start::Entry( )
 	// 충돌 지정
 	// ex) Player 그룹과 Monster 그룹 간의 충돌 체크
 	CCollisionMgr::GetInst( )->CheckGroup( GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER );
+	CCollisionMgr::GetInst( )->CheckGroup( GROUP_TYPE::MONSTER, GROUP_TYPE::PROJECTILE_P );
 }
 
 void CScene_Start::Exit( )

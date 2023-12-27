@@ -20,13 +20,9 @@ CMonster::~CMonster( )
 
 }
 
-void CMonster::OnCollisionEnter( CCollider* other )
-{
-
-}
-
 void CMonster::update( )
 {
+	return;
 	Vec2 vMonCurPos = GetPos( );
 
 	// 진행 방향으로 초당 m_fSpeed만큼 이동
@@ -42,4 +38,14 @@ void CMonster::update( )
 	}
 
 	SetPos( vMonCurPos );
+}
+
+void CMonster::OnCollisionEnter( CCollider* other )
+{
+	CObject* pOtherObj = other->GetObj( );
+
+	if ( pOtherObj->GetName( ) == L"Projectile_P" )
+	{
+		DeleteObject( this );
+	}
 }

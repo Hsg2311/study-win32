@@ -18,6 +18,9 @@ public:
 	virtual void update( );
 	virtual void render( HDC _dc );
 
+public:
+	virtual void OnCollisionEnter( CCollider* other );
+
 private:
 	float m_fTheta;	// 이동 방향(각도), 호도법(라디안 방식)
 	Vec2 m_vDir;	// Missile 객체를 중심으로 객체의 방향을 나타내는 벡터 성분으로써 사용

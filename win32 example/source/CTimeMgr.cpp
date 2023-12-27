@@ -36,6 +36,11 @@ void CTimeMgr::update( )
 	m_dDT = ( (double)m_CurCount.QuadPart - (double)m_PrevCount.QuadPart ) / (double)m_Frequency.QuadPart;
 
 	m_PrevCount = m_CurCount;
+
+#ifdef _DEBUG	// 디버그 모드에서 DT 고정
+	if ( m_dDT > ( 1. / 60. ) )
+		m_dDT = ( 1. / 60. );
+#endif
 }
 
 void CTimeMgr::render( )
