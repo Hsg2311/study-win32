@@ -21,3 +21,12 @@ void DeleteObject( CObject* _other )
 
 	CEventMgr::GetInst( )->AddEvent( evn );
 }
+
+void ChangeScene( SCENE_TYPE _eNext )
+{
+	tEvent evn{ };
+	evn.eEvent = EVENT_TYPE::SCENE_CHANGE;
+	evn.lParam = (DWORD_PTR)_eNext;
+
+	CEventMgr::GetInst( )->AddEvent( evn );
+}

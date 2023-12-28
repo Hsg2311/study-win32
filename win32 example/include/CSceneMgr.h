@@ -10,9 +10,15 @@ public:
 	void init( );
 	void update( );
 	void render( HDC _dc );
+
 	CScene* GetCurScene( ) { return m_pCurScene; }
 
 private:
+	void ChangeScene( SCENE_TYPE _eNext );
+
+private:
 	CScene* m_arrScene[ (UINT)SCENE_TYPE::EOE ];	// 모든 Scene 목록
-	CScene* m_pCurScene;										// 현재 Scene
+	CScene* m_pCurScene;							// 현재 Scene
+
+	friend class CEventMgr;
 };

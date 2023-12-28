@@ -65,3 +65,17 @@ void CScene::render( HDC _dc )
 		}
 	}
 }
+
+void CScene::DeleteGroup( GROUP_TYPE _eTarget )
+{
+	Safe_Delete_Vec( m_arrObj[ (UINT)_eTarget ] );
+	// Safe_Delete_Vec<CObject*>( m_arrObj[ (UINT)_eTarget ] );  함수 버전을 명확하게 지칭하는 것이 정석
+}
+
+void CScene::DeleteAll( )
+{
+	for ( UINT i = 0; i < (UINT)GROUP_TYPE::EOE; ++i )
+	{
+		DeleteGroup( (GROUP_TYPE)i );
+	}
+}

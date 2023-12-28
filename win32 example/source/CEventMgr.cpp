@@ -63,7 +63,8 @@ void CEventMgr::Execute( const tEvent& _event )
 		break;
 
 	case EVENT_TYPE::SCENE_CHANGE:
-
+		// lParam : Next Scene Type
+		CSceneMgr::GetInst( )->ChangeScene( (SCENE_TYPE)_event.lParam );
 		break;
 	}
 }
