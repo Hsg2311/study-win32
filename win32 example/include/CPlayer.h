@@ -12,6 +12,8 @@ public:
 	virtual void update( );
 	virtual void render( HDC _dc );
 
+	CPlayer* Clone( ) { return new CPlayer{ *this }; }
+
 private:
 	void CreateMissile( );
 

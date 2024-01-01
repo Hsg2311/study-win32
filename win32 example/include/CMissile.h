@@ -14,6 +14,8 @@ public:
 		m_vDir.Nomalize( );
 	}
 
+	CMissile* Clone( ) { return new CMissile{ *this }; }
+
 public:
 	virtual void update( );
 	virtual void render( HDC _dc );

@@ -14,6 +14,8 @@ public:
 
 	virtual void OnCollisionEnter( CCollider* other );
 
+	CMonster* Clone( ) { return new CMonster{ *this }; }
+
 public:
 	virtual void update( );
 

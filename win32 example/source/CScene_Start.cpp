@@ -35,11 +35,15 @@ void CScene_Start::update( )
 
 void CScene_Start::Entry( )
 {
-	// Object 추가
+	// Player Object 추가
 	CObject* pObj = new CPlayer;
 	pObj->SetPos( Vec2{ 640.f, 384.f } );
 	pObj->SetScale( Vec2{ 100.f, 100.f } );
 	AddObjcet( pObj, GROUP_TYPE::PLAYER );
+
+	CObject* pOtherPlayer = pObj->Clone( );
+	pOtherPlayer->SetPos( Vec2{ 840.f, 384.f } );
+	AddObjcet( pOtherPlayer, GROUP_TYPE::PLAYER );
 
 	// Monster Object 추가
 	int iMonCount = 15;

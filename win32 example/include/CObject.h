@@ -6,6 +6,8 @@ class CObject
 {
 public:
 	CObject( );
+	CObject( const CObject& _origin );
+
 	virtual ~CObject( );
 
 	void SetPos( Vec2 _vPos ) { m_vPos = _vPos; }
@@ -36,6 +38,8 @@ public:
 	virtual void render( HDC _dc );
 
 	void component_render( HDC _dc );
+
+	virtual CObject* Clone( ) = 0;
 
 private:
 	std::wstring name;
