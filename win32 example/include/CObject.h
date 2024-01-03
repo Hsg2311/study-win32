@@ -1,6 +1,7 @@
 #pragma once
 
 class CCollider;
+class CAnimator;
 
 class CObject
 {
@@ -48,6 +49,7 @@ private:
 	Vec2 m_vScale;
 
 	CCollider* m_pCollider;
+	CAnimator* m_pAnimator;
 
 	bool m_bAlive;
 

@@ -17,7 +17,7 @@ CPlayer::CPlayer( )
 	: m_pTex{ nullptr }
 {
 	// Texture 로딩하기
-	m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\cuphead_idle_0001.bmp" );
+	m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\idle\\cuphead_idle_0001.bmp" );
 
 	CreateCollider( );
 	GetCollider( )->SetOffsetPos( Vec2{ 0.f, 0.f } );
@@ -64,20 +64,20 @@ void CPlayer::render( HDC _dc )
 
 	Vec2 vPos = GetPos( );
 
-	//BitBlt( _dc
-	//	, (int)( vPos.x - (float)( iWidth / 2 ) )
-	//	, (int)( vPos.y - (float)( iHeight / 2 ) )
-	//	, iWidth, iHeight
-	//	, m_pTex->GetDC( )
-	//	, 0, 0, SRCCOPY );
-
-	TransparentBlt( _dc
+	BitBlt( _dc
 		, (int)( vPos.x - (float)( iWidth / 2 ) )
 		, (int)( vPos.y - (float)( iHeight / 2 ) )
 		, iWidth, iHeight
 		, m_pTex->GetDC( )
-		, 0, 0, iWidth, iHeight
-		, RGB( 255, 0, 255 ) );
+		, 0, 0, SRCCOPY );
+
+	//TransparentBlt( _dc
+	//	, (int)( vPos.x - (float)( iWidth / 2 ) )
+	//	, (int)( vPos.y - (float)( iHeight / 2 ) )
+	//	, iWidth, iHeight
+	//	, m_pTex->GetDC( )
+	//	, 0, 0, iWidth, iHeight
+	//	, RGB( 255, 0, 255 ) );
 
 	// 컴포넌트(충돌체, etc...)가 있는 경우 렌더
 	component_render( _dc );
