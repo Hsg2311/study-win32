@@ -37,12 +37,12 @@ CTexture* CResMgr::LoadTexture( const std::wstring& _strKey, const std::wstring&
 
 CTexture* CResMgr::FindTexture( const std::wstring& _strKey )
 {
-	std::map<std::wstring, CTexture*>::iterator iter = m_mapTex.find( _strKey );
+	std::map<std::wstring, CRes*>::iterator iter = m_mapTex.find( _strKey );
 
 	if ( iter == m_mapTex.end( ) )
 	{
 		return nullptr;
 	}
 
-	return iter->second;
+	return (CTexture*)iter->second;
 }

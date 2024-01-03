@@ -41,9 +41,9 @@ void CScene_Start::Entry( )
 	pObj->SetScale( Vec2{ 100.f, 100.f } );
 	AddObjcet( pObj, GROUP_TYPE::PLAYER );
 
-	CObject* pOtherPlayer = pObj->Clone( );
-	pOtherPlayer->SetPos( Vec2{ 840.f, 384.f } );
-	AddObjcet( pOtherPlayer, GROUP_TYPE::PLAYER );
+	//CObject* pOtherPlayer = pObj->Clone( );
+	//pOtherPlayer->SetPos( Vec2{ 840.f, 384.f } );
+	//AddObjcet( pOtherPlayer, GROUP_TYPE::PLAYER );
 
 	// Monster Object Ãß°¡
 	int iMonCount = 15;

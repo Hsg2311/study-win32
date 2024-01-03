@@ -63,6 +63,11 @@ public:
 		return Vec2{ x * _vOther.x, y * _vOther.y };
 	}
 
+	Vec2 operator *( int i )
+	{
+		return Vec2{ x * (float)i, y * (float)i };
+	}
+
 	Vec2 operator /( const Vec2& _vOther )
 	{
 		assert( !( _vOther.x == 0.f || _vOther.y == 0.f ) );

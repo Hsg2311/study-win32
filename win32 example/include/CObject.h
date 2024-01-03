@@ -21,8 +21,10 @@ public:
 	const std::wstring& GetName( ) { return name; }
 
 	void CreateCollider( );
+	void CreateAnimator( );
 
 	CCollider* GetCollider( ) { return m_pCollider; }
+	CAnimator* GetAnimator( ) { return m_pAnimator; }
 
 	bool IsDead( ) { return !m_bAlive; }
 

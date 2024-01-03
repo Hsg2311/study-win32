@@ -5,7 +5,7 @@ class CTexture : public CRes
 {
 private:
 	CTexture( );
-	~CTexture( );
+	virtual ~CTexture( );
 
 	friend class CResMgr;
 

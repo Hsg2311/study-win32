@@ -1,5 +1,6 @@
 #pragma once
 
+class CRes;
 class CTexture;
 
 class CResMgr
@@ -11,5 +12,5 @@ public:
 	CTexture* FindTexture( const std::wstring& _strKey );
 
 private:
-	std::map<std::wstring, CTexture*> m_mapTex;
+	std::map<std::wstring, CRes*> m_mapTex;
 };

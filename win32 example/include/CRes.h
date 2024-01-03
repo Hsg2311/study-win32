@@ -4,7 +4,7 @@ class CRes
 {
 public:
 	CRes( );
-	~CRes( );
+	virtual ~CRes( );
 
 	void SetKey( const std::wstring& _strKey ) { m_strKey = _strKey; }
 	void SetRelativePath( const std::wstring& _strPath ) { m_strRelativePath = _strPath; }
