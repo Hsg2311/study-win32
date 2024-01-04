@@ -53,6 +53,12 @@ public:
 		return Vec2{ x + _vOther.x, y + _vOther.y };
 	}
 
+	void operator +=( const Vec2& _other )
+	{
+		x += _other.x;
+		y += _other.y;
+	}
+
 	Vec2 operator -( const Vec2& _vOther )
 	{
 		return Vec2{ x - _vOther.x, y - _vOther.y };

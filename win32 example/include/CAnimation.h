@@ -7,6 +7,7 @@ struct tAnimFrm
 {
 	Vec2 LT;
 	Vec2 slice;
+	Vec2 offset;
 	float duration;
 };
 
@@ -28,6 +29,10 @@ public:
 		m_curFrm = _frameIdx;
 		m_AccTime = 0.f;
 	}
+
+	tAnimFrm& GetFrame( int _idx ) { return m_vecFrm[ _idx ]; }
+	int GetMaxFrame( ) { return m_vecFrm.size( ); }
+
 
 private:
 	void SetName( const std::wstring& _name ) { m_Name = _name; }

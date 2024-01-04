@@ -29,15 +29,17 @@ void CAnimation::update( )
 
 	if ( m_vecFrm[ m_curFrm ].duration < m_AccTime )
 	{
-		m_AccTime -= m_vecFrm[ m_curFrm ].duration;
-
 		++m_curFrm;
 
 		if ( m_curFrm >= m_vecFrm.size( ) )
 		{
 			m_curFrm = -1;
 			m_finish = true;
+			m_AccTime = 0.f;
+			return;
 		}
+
+		m_AccTime -= m_vecFrm[ m_curFrm ].duration;
 	}
 }
 
@@ -48,10 +50,11 @@ void CAnimation::render( HDC _dc )
 
 	CObject* pObj = m_pAnimator->GetObj( );
 	Vec2 objPos = pObj->GetPos( );
-
+	objPos += m_vecFrm[ m_curFrm ].offset;	// Object Position에 offset만큼 추가로 이동한 위치
+	
 	TransparentBlt( _dc
-		, (int)( objPos.x - m_vecFrm[ m_curFrm ].slice.x / 2.f )
-		, (int)( objPos.y - m_vecFrm[ m_curFrm ].slice.y / 2.f )
+		, (int)( objPos.x + m_vecFrm[ m_curFrm ].offset.x - m_vecFrm[ m_curFrm ].slice.x / 2.f )
+		, (int)( objPos.y + m_vecFrm[ m_curFrm ].offset.y - m_vecFrm[ m_curFrm ].slice.y / 2.f )
 		, (int)( m_vecFrm[ m_curFrm ].slice.x )
 		, (int)( m_vecFrm[ m_curFrm ].slice.y )
 		, m_pTex->GetDC( )

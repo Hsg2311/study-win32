@@ -13,6 +13,7 @@
 #include "CTexture.h"
 #include "CCollider.h"
 #include "CAnimator.h"
+#include "CAnimation.h"
 
 CPlayer::CPlayer( )
 {
@@ -28,6 +29,12 @@ CPlayer::CPlayer( )
 	CreateAnimator( );
 	GetAnimator( )->CreateAnimation( L"Idle", m_pTex, Vec2{ 0.f, 0.f }, Vec2{ 100.f, 155.f }, Vec2{ 100.f, 0.f }, 0.08f, 8 );
 	GetAnimator( )->Play( L"Idle", true );
+
+	CAnimation* pAnim = GetAnimator( )->FindAnimation( L"Idle" );
+	for ( int i = 0; i < pAnim->GetMaxFrame( ); ++i )
+	{
+		pAnim->GetFrame( i ).offset = Vec2{ 0.f, -30.f };
+	}
 }
 
 CPlayer::~CPlayer( )
