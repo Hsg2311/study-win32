@@ -15,7 +15,6 @@
 #include "CAnimator.h"
 
 CPlayer::CPlayer( )
-	: m_pTex{ nullptr }
 {
 	// Texture 로딩하기
 	//m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\idle\\cuphead_idle_0001.bmp" );
@@ -25,9 +24,10 @@ CPlayer::CPlayer( )
 	GetCollider( )->setScale( Vec2{ 70.f, 100.f } );
 
 	// Texture 로딩하기
-	m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\idle\\cuphead_idle.bmp" );
+	CTexture* m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\idle\\cuphead_idle_v2.bmp" );
 	CreateAnimator( );
-	GetAnimator( )->CreateAnimation( L"Idle", m_pTex, Vec2{ 0.f, 0.f }, Vec2{ 100.f, 155.f }, Vec2{ 100.f, 0.f }, 0.1f, 9 );
+	GetAnimator( )->CreateAnimation( L"Idle", m_pTex, Vec2{ 0.f, 0.f }, Vec2{ 100.f, 155.f }, Vec2{ 100.f, 0.f }, 0.08f, 8 );
+	GetAnimator( )->Play( L"Idle", true );
 }
 
 CPlayer::~CPlayer( )
@@ -61,30 +61,12 @@ void CPlayer::update( )
 	}
 
 	SetPos( vPos );
+
+	GetAnimator( )->update( );
 }
 
 void CPlayer::render( HDC _dc )
 {
-	int iWidth = (int)m_pTex->Width( );
-	int iHeight = (int)m_pTex->Height( );
-
-	Vec2 vPos = GetPos( );
-
-	/*BitBlt( _dc
-		, (int)( vPos.x - (float)( iWidth / 2 ) )
-		, (int)( vPos.y - (float)( iHeight / 2 ) )
-		, iWidth, iHeight
-		, m_pTex->GetDC( )
-		, 0, 0, SRCCOPY );*/
-
-	TransparentBlt( _dc
-		, (int)( vPos.x - (float)( iWidth / 2 ) )
-		, (int)( vPos.y - (float)( iHeight / 2 ) )
-		, iWidth, iHeight
-		, m_pTex->GetDC( )
-		, 0, 0, iWidth, iHeight
-		, RGB( 255, 255, 255 ) );
-
 	// 컴포넌트(충돌체, etc...)가 있는 경우 렌더
 	component_render( _dc );
 }

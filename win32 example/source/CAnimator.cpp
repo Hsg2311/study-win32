@@ -6,6 +6,7 @@
 CAnimator::CAnimator( )
 	: m_pCurAnim{ nullptr }
 	, m_pOwner{ nullptr }
+	, m_repeat{ false }
 {
 }
 
@@ -19,6 +20,11 @@ void CAnimator::update( )
 	if ( m_pCurAnim != nullptr )
 	{
 		m_pCurAnim->update( );
+
+		if ( m_repeat && m_pCurAnim->IsFinish( ) )
+		{
+			m_pCurAnim->SetFrame( 0 );
+		}
 	}
 }
 
@@ -55,4 +61,10 @@ CAnimation* CAnimator::FindAnimation( const std::wstring& _name )
 	}
 
 	return iter->second;
+}
+
+void CAnimator::Play( const std::wstring& _name, bool _repeat )
+{
+	m_pCurAnim = FindAnimation( _name );
+	m_repeat = _repeat;
 }

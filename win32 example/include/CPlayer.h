@@ -18,5 +18,5 @@ private:
 	void CreateMissile( );
 
 private:
-	CTexture* m_pTex;
+	
 };
