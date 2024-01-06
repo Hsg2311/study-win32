@@ -74,11 +74,11 @@ void CAnimation::Create( CTexture* _pTex, Vec2 _LT, Vec2 _sliceSize, Vec2 _step,
 	m_pTex = _pTex;
 
 	tAnimFrm frm{ };
-	for ( int i = 0; i < _frameCount; ++i )
+	for ( UINT i = 0; i < _frameCount; ++i )
 	{
 		frm.duration = _duration;
 		frm.slice = _sliceSize;
-		frm.LT = _LT + _step * i;
+		frm.LT = _LT + _step * (float)i;
 
 		m_vecFrm.push_back( frm );
 	}

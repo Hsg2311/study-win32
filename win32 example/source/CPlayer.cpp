@@ -31,7 +31,7 @@ CPlayer::CPlayer( )
 	GetAnimator( )->Play( L"Idle", true );
 
 	CAnimation* pAnim = GetAnimator( )->FindAnimation( L"Idle" );
-	for ( int i = 0; i < pAnim->GetMaxFrame( ); ++i )
+	for ( UINT i = 0; i < pAnim->GetMaxFrame( ); ++i )
 	{
 		pAnim->GetFrame( i ).offset = Vec2{ 0.f, -30.f };
 	}
