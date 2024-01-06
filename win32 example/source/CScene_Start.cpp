@@ -31,6 +31,12 @@ void CScene_Start::update( )
 	{
 		ChangeScene( SCENE_TYPE::TOOL );
 	}
+
+	if ( KEY_TAP( KEY::LBTN ) )
+	{
+		Vec2 LookAt = CCamera::GetInst( )->GetRealPos( MOUSE_POS );
+		CCamera::GetInst( )->SetLookAt( LookAt );
+	}
 }
 
 void CScene_Start::Entry( )
@@ -44,6 +50,8 @@ void CScene_Start::Entry( )
 	//CObject* pOtherPlayer = pObj->Clone( );
 	//pOtherPlayer->SetPos( Vec2{ 840.f, 384.f } );
 	//AddObjcet( pOtherPlayer, GROUP_TYPE::PLAYER );
+
+	//CCamera::GetInst( )->SetTarget( pObj );
 
 	// Monster Object 추가
 	int iMonCount = 15;
@@ -70,6 +78,9 @@ void CScene_Start::Entry( )
 	// ex) Player 그룹과 Monster 그룹 간의 충돌 체크
 	CCollisionMgr::GetInst( )->CheckGroup( GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER );
 	CCollisionMgr::GetInst( )->CheckGroup( GROUP_TYPE::MONSTER, GROUP_TYPE::PROJECTILE_P );
+
+	// Camera Look 지정
+	CCamera::GetInst( )->SetLookAt( vResolution / 2.f );
 }
 
 void CScene_Start::Exit( )

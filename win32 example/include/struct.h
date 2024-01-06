@@ -74,11 +74,23 @@ public:
 		return Vec2{ x * (float)i, y * (float)i };
 	}
 
+	Vec2 operator *( float _f )
+	{
+		return Vec2{ x * _f, y * _f };
+	}
+
 	Vec2 operator /( const Vec2& _vOther )
 	{
 		assert( !( _vOther.x == 0.f || _vOther.y == 0.f ) );
 
 		return Vec2{ x / _vOther.x, y / _vOther.y };
+	}
+
+	Vec2 operator /( float _f )
+	{
+		assert( !( _f == 0.f ) );
+
+		return Vec2{ x / _f, y / _f };
 	}
 
 public:

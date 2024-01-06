@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CKeyMgr.h"
 
+#include "CCore.h"
+
 int g_arrVK[ (int)KEY::END_OF_ENUM_CLASS ] =
 {
 	VK_LEFT,
@@ -40,7 +42,10 @@ int g_arrVK[ (int)KEY::END_OF_ENUM_CLASS ] =
 	VK_LSHIFT,
 	VK_SPACE,
 	VK_RETURN,
-	VK_ESCAPE
+	VK_ESCAPE,
+
+	VK_LBUTTON,
+	VK_RBUTTON
 };
 
 CKeyMgr::CKeyMgr( )
@@ -112,6 +117,13 @@ void CKeyMgr::update( )
 				m_vecKey[ i ].bPrevPush = false;
 			}
 		}
+
+		// Mouse 위치 계산
+		POINT mousePos;
+		GetCursorPos( &mousePos );										// 내 모니터 화면 기준 마우스 위치를 알려줌
+		ScreenToClient( CCore::GetInst( )->GetMainHWND( ), &mousePos );	// visual 윈도우 화면 기준 마우스 위치를 다시 계산해줌
+
+		m_CurMousePos = Vec2{ (float)mousePos.x, (float)mousePos.y };
 	}
 	
 	// 윈도우 포커싱 해제 상태

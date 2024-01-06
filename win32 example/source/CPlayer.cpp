@@ -27,7 +27,7 @@ CPlayer::CPlayer( )
 	// Texture 로딩하기
 	CTexture* m_pTex = CResMgr::GetInst( )->LoadTexture( L"PlayerTexture", L"texture\\idle\\cuphead_idle_v2.bmp" );
 	CreateAnimator( );
-	GetAnimator( )->CreateAnimation( L"Idle", m_pTex, Vec2{ 0.f, 0.f }, Vec2{ 100.f, 155.f }, Vec2{ 100.f, 0.f }, 0.08f, 8 );
+	GetAnimator( )->CreateAnimation( L"Idle", m_pTex, Vec2{ 0.f, 0.f }, Vec2{ 100.f, 155.f }, Vec2{ 100.f, 0.f }, 0.07f, 8 );
 	GetAnimator( )->Play( L"Idle", true );
 
 	CAnimation* pAnim = GetAnimator( )->FindAnimation( L"Idle" );
