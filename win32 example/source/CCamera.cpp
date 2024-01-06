@@ -9,6 +9,9 @@
 
 CCamera::CCamera( )
 	: m_pTargetObj{ nullptr }
+	, m_Time{ 1.f }
+	, m_Speed{ 0.f }
+	, m_AccTime{ 0.f }
 {
 
 }
@@ -56,9 +59,18 @@ void CCamera::update( )
 void CCamera::CalcDiff( )
 {
 	// prevLookAt과 LookAt의 차이값을 보정해서 curLookAt을 구한다.
-	
-	Vec2 LookDir = m_LookAt - m_prevLookAt;	// prevLookAt에서 LookAt으로 가야 할 방향 벡터가 나옴
-	m_curLookAt = m_prevLookAt + LookDir.Nomalize( ) * 500.f * fDT;
+
+	m_AccTime += fDT;
+
+	if ( m_Time <= m_AccTime )
+	{
+		m_curLookAt = m_LookAt;
+	}
+	else
+	{
+		Vec2 LookDir = m_LookAt - m_prevLookAt;	// prevLookAt에서 LookAt으로 가야 할 방향 벡터가 나옴
+		m_curLookAt = m_prevLookAt + LookDir.Nomalize( ) * m_Speed * fDT;
+	}
 
 
 	Vec2 resolution = CCore::GetInst( )->GetResolution( );
