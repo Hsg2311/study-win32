@@ -34,7 +34,7 @@ void CSceneMgr::init( )
 	m_arrScene[ (UINT)SCENE_TYPE::TOOL ]->SetName( L"Tool Scene" );
 
 	// 현재 Scene 지정
-	m_pCurScene = m_arrScene[ (UINT)SCENE_TYPE::START ];
+	m_pCurScene = m_arrScene[ (UINT)SCENE_TYPE::TOOL ];
 	m_pCurScene->Entry( );
 }
 

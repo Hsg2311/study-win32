@@ -11,7 +11,7 @@ CCamera::CCamera( )
 	: m_pTargetObj{ nullptr }
 	, m_Time{ 1.f }
 	, m_Speed{ 0.f }
-	, m_AccTime{ 0.f }
+	, m_AccTime{ 1.f }
 {
 
 }

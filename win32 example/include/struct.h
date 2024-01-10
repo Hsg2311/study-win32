@@ -18,9 +18,14 @@ public:
 		, y{ (float)_y }
 	{}
 
+	Vec2( int _x, int _y )
+		: x{ (float)_x }
+		, y{ (float)_y }
+	{}
+
 	Vec2( const POINT& _pt )
-		: x{ (float )_pt.x }
-		, y{ (float )_pt.y }
+		: x{ (float)_pt.x }
+		, y{ (float)_pt.y }
 	{}
 
 public:

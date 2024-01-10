@@ -20,9 +20,12 @@
 #define KEY_NONE( key ) KEY_CHECK( key, KEY_STATE::NONE )
 #define MOUSE_POS CKeyMgr::GetInst( )->GetMousePos( )
 
+#define TILE_SIZE 64
+
 enum class GROUP_TYPE
 {
 	DEFAULT,
+	TILE,
 	PLAYER,
 	MONSTER,
 	PROJECTILE_P,
